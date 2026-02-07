@@ -41,9 +41,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="light"
+        name="exposure"
         options={{
-          title: "Handle Light",
+          title: "Handle Exposure",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={focused ? "sunny-sharp" : "sunny-outline"}
