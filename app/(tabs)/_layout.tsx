@@ -1,33 +1,67 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { Tabs } from "expo-router";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+    <Tabs>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Basic",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "camera-sharp" : "camera-outline"}
+              color={color}
+            />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="contrast"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Handle Contrast",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "contrast-sharp" : "contrast-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="focus"
+        options={{
+          title: "Handle Focus",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "eye-sharp" : "eye-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="light"
+        options={{
+          title: "Handle Light",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "sunny-sharp" : "sunny-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="frame"
+        options={{
+          title: "Handle Frame",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "albums-sharp" : "albums-outline"}
+              color={color}
+            />
+          ),
         }}
       />
     </Tabs>
